@@ -1,0 +1,19 @@
+﻿services:
+  retailmanager.api:
+    image: retailmanager.api
+    build:
+      context: .
+      dockerfile: RetailManager.Api/Dockerfile
+      
+  retailmanager-db:
+    image: mcr.microsoft.com/mssql/server
+    container_name: retailmanager.Db
+    volumes:
+      - ./.containers/database:/var/opt/mssql/data
+    ports:
+      - "1400:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Password123"
+
+  
