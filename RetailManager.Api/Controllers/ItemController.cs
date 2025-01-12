@@ -55,7 +55,7 @@ public class ItemController(IItemRepository itemRepository, IMapper mapper) : Co
     }
     
     [HttpPost]
-    public async Task<IActionResult> AddItemAsync(AddItemRequest addItemRequest)
+    public async Task<IActionResult> CreateItemAsync(AddItemRequest addItemRequest)
     {
         var item = mapper.Map<Item>(addItemRequest);
         
